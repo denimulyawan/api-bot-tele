@@ -2,6 +2,8 @@ const express = require("express");
 const TelegramBot = require("node-telegram-bot-api");
 const dotenv = require("dotenv");
 
+var cors = require('cors')
+
 dotenv.config();
 
 const app = express();
@@ -11,6 +13,7 @@ const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
